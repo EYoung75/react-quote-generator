@@ -6,20 +6,33 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      images: []
+      images: [],
+      quotes: []
     }
   }
 
   async componentDidMount() {
-    const response = await fetch("https://picsum.photos/200/300/?random)")
+    const pictures = await fetch("https://picsum.photos/750/750/?random")
     //const json = await response.json()
-    this.setState({images: response.url})
-    console.log(this.state.images)
+    this.setState({images: pictures.url})
+    const quotes = await fetch("https://talaikis.com/api/quotes/random/")
+    const json = await quotes.json()
+    this.setState({quotes: json.quote})
   }
+
+  handleClick(e) {
+    window.location.reload(); 
+  }
+
+
   render() {
+
+    const authors =["Marilyn Monroe", "Abraham Lincoln", "Mother Teresa", "John F. Kennedy", "Martin Luther King", "Nelson Mandela", "Winston Churchill", "Donald Trump", "Bill Gates", "Muhammad Ali", "Mahatma Gandhi", "Christopher Columbus", "Charles Darwin", "Elvis Presley", "Albert Einstein", "Vincent Van Gogh", "Franklin D. Roosevelt", "Thomas Edison", "Rosa Parks", "Oprah Winfrey", "Walt Disney", "Neil Armstrong", "Barack Obama", "J.K.Rowling", "Angelina Jolie", "Joseph Stalin", "Amelia Earhart", "Adolf Hitler", "Michael Jackson", "Madonna", "Steve Jobs", "Steve Jobs", "Usain Bolt", "Anne Frank", "Stephen Hawking", "Tom Cruise", "Spice Girls", "Backstreet Boys", "Jennifer Aniston", "Jennifer Lopez"]
+
     return (
       <div className="App">
-        <Image images={this.state.images}/>
+        <h1 className="titleFont">Inspirational Quotes</h1>
+        <Image images={this.state.images} refresh={this.handleClick} quote={this.state.quotes}/>
       </div>
     );
   }

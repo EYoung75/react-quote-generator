@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  color:white;
+}
+
+body {
+  background-color: #505256;
 }
 
 .App-header {
@@ -13,3 +18,31 @@
   color: white;
 }
 
+@font-face {
+  font-family: gojiraBlack;
+  src: url(GojiraBlack.ttf);
+  font-family: Bebas;
+  src: url(BebasNeue-Regular.ttf);
+}
+
+.titleFont {
+  font-family: gojiraBlack;
+}
+
+.quoteFont {
+  font-family: Bebas;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  color: #ef1515;
+
+}
+
+.button {
+  margin-top: 4rem;
+  width: 50vw;
+  margin-left: 25%;
+  font-size: 5rem;
+}
