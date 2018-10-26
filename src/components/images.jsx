@@ -7,11 +7,12 @@ class Image extends React.Component {
                 <div>
                     <img src={this.props.images} alt="randomPic"></img>
                 </div>
-                <div>
-                    <h3 className="quoteFont">"{this.props.quote}"</h3>
+                <div className="quoteFont">
+                    <h3 className="quote">"{this.props.quote}"</h3>
+                    <h2 className="author">-{this.props.author}</h2>
                 </div>
                 <div>
-                    <button onClick={this.props.refresh} type="button" className="btn btn-primary btn-lg btn-block button titleFont">Inspire Me</button>
+                    <button onClick={this.props.refresh} type="button" className="btn btn-primary btn-lg btn-block button titleFont">(Attempt to) Inspire Me</button>
                 </div>
             </div>
         )
